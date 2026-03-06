@@ -1,0 +1,218 @@
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.57 (1.3.67 available)
+  animate_do 3.3.9 (4.2.0 available)
+  archive 3.6.1 (4.0.9 available)
+  characters 1.4.0 (1.4.1 available)
+  dart_openai 5.1.0 (6.1.1 available)
+  device_apps 2.2.0 (discontinued)
+  file_picker 8.3.7 (10.3.10 available)
+  firebase_app_check 0.3.2+8 (0.4.1+5 available)
+  firebase_app_check_platform_interface 0.1.1+8 (0.2.1+5 available)
+  firebase_app_check_web 0.2.0+12 (0.2.2+3 available)
+  firebase_auth 5.6.1 (6.2.0 available)
+  firebase_auth_platform_interface 7.7.1 (8.1.7 available)
+  firebase_auth_web 5.15.1 (6.1.3 available)
+  firebase_core 3.15.0 (4.5.0 available)
+  firebase_core_platform_interface 5.4.2 (6.0.2 available)
+  firebase_core_web 2.24.0 (3.5.0 available)
+  firebase_data_connect 0.1.5 (0.2.3 available)
+  fl_chart 0.68.0 (1.1.1 available)
+  flutter_launcher_icons 0.13.1 (0.14.4 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  google_fonts 6.3.3 (8.0.2 available)
+  googleapis_auth 1.6.0 (2.1.0 available)
+  grpc 3.2.4 (5.1.0 available)
+  image 4.3.0 (4.8.0 available)
+  intl 0.19.0 (0.20.2 available)
+  lints 3.0.0 (6.1.0 available)
+  lottie 3.3.0 (3.3.2 available)
+  matcher 0.12.17 (0.12.19 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.1 available)
+  protobuf 3.1.0 (6.0.0 available)
+  test_api 0.7.7 (0.7.10 available)
+  win32 5.15.0 (6.0.0 available)
+  win32_registry 2.1.0 (3.0.2 available)
+Got dependencies!
+1 package is discontinued.
+33 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/jayso/protegi/mobsf_flutter_app/test/widget_test.dart
+00:00 +0: App smoke test
+ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY WIDGETS LIBRARY Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+The following ProviderNotFoundException was thrown building ProtegiApp(dirty):
+Error: Could not find the correct Provider<ThemeProvider> above this ProtegiApp Widget
+
+This happens because you used a `BuildContext` that does not include the provider
+of your choice. There are a few common scenarios:
+
+- You added a new provider in your `main.dart` and performed a hot-reload.
+  To fix, perform a hot-restart.
+
+- The provider you are trying to read is in a different route.
+
+  Providers are "scoped". So if you insert of provider inside a route, then
+  other routes will not be able to access that provider.
+
+- You used a `BuildContext` that is an ancestor of the provider you are trying to read.
+
+  Make sure that ProtegiApp is under your MultiProvider/Provider<ThemeProvider>.
+  This usually happens when you are creating a provider and trying to read it immediately.
+
+  For example, instead of:
+
+  ```
+  Widget build(BuildContext context) {
+    return Provider<Example>(
+      create: (_) => Example(),
+      // Will throw a ProviderNotFoundError, because `context` is associated
+      // to the widget that is the parent of `Provider<Example>`
+      child: Text(context.watch<Example>().toString()),
+    );
+  }
+  ```
+
+  consider using `builder` like so:
+
+  ```
+  Widget build(BuildContext context) {
+    return Provider<Example>(
+      create: (_) => Example(),
+      // we use `builder` to obtain a new `BuildContext` that has access to the provider
+      builder: (context, child) {
+        // No longer throws
+        return Text(context.watch<Example>().toString());
+      }
+    );
+  }
+  ```
+
+If none of these solutions work, consider asking for help on StackOverflow:
+https://stackoverflow.com/questions/tagged/flutter
+
+The relevant error-causing widget was:
+  ProtegiApp ProtegiApp:file:///C:/Users/jayso/protegi/mobsf_flutter_app/test/widget_test.dart:8:35
+
+When the exception was thrown, this was the stack:
+#0      Provider._inheritedElementOf (package:provider/src/provider.dart:377:7)
+#1      Provider.of (package:provider/src/provider.dart:327:30)
+#2      ProtegiApp.build (package:protegi/main.dart:50:36)
+#3      StatelessElement.build (package:flutter/src/widgets/framework.dart:5892:49)
+#4      ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5820:15)
+#5      Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#6      ComponentElement._firstBuild (package:flutter/src/widgets/framework.dart:5802:5)
+#7      ComponentElement.mount (package:flutter/src/widgets/framework.dart:5796:5)
+#8      Element.inflateWidget (package:flutter/src/widgets/framework.dart:4590:20)
+#9      Element.updateChild (package:flutter/src/widgets/framework.dart:4053:20)
+#10     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#11     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#12     ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#13     _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#14     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#15     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#16     StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#17     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#18     StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#19     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#20     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#21     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#22     ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#23     _InheritedNotifierElement.update (package:flutter/src/widgets/inherited_notifier.dart:108:11)
+#24     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#25     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#26     StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#27     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#28     StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#29     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#30     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#31     StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#32     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#33     StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#34     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#35     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#36     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#37     ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#38     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#39     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#40     StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#41     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#42     StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#43     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#44     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#45     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#46     ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#47     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#48     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#49     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#50     ProxyElement.update (package:flutter/src/widgets/framework.dart:6152:5)
+#51     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#52     _RawViewElement._updateChild (package:flutter/src/widgets/view.dart:481:16)
+#53     _RawViewElement.update (package:flutter/src/widgets/view.dart:568:5)
+#54     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#55     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#56     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#57     StatelessElement.update (package:flutter/src/widgets/framework.dart:5898:5)
+#58     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#59     ComponentElement.performRebuild (package:flutter/src/widgets/framework.dart:5844:16)
+#60     StatefulElement.performRebuild (package:flutter/src/widgets/framework.dart:5985:11)
+#61     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#62     StatefulElement.update (package:flutter/src/widgets/framework.dart:6010:5)
+#63     Element.updateChild (package:flutter/src/widgets/framework.dart:4037:15)
+#64     RootElement._rebuild (package:flutter/src/widgets/binding.dart:1782:16)
+#65     RootElement.update (package:flutter/src/widgets/binding.dart:1760:5)
+#66     RootElement.performRebuild (package:flutter/src/widgets/binding.dart:1774:7)
+#67     Element.rebuild (package:flutter/src/widgets/framework.dart:5532:7)
+#68     BuildScope._tryRebuild (package:flutter/src/widgets/framework.dart:2750:15)
+#69     BuildScope._flushDirtyElements (package:flutter/src/widgets/framework.dart:2807:11)
+#70     BuildOwner.buildScope (package:flutter/src/widgets/framework.dart:3111:18)
+#71     AutomatedTestWidgetsFlutterBinding.drawFrame (package:flutter_test/src/binding.dart:1506:19)
+#72     RendererBinding._handlePersistentFrameCallback (package:flutter/src/rendering/binding.dart:495:5)
+#73     SchedulerBinding._invokeFrameCallback (package:flutter/src/scheduler/binding.dart:1434:15)
+#74     SchedulerBinding.handleDrawFrame (package:flutter/src/scheduler/binding.dart:1347:9)
+#75     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:1335:9)
+#78     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#79     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:1324:27)
+#80     WidgetTester.pumpWidget.<anonymous closure> (package:flutter_test/src/widget_tester.dart:598:22)
+#83     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#84     WidgetTester.pumpWidget (package:flutter_test/src/widget_tester.dart:595:27)
+#85     main.<anonymous closure> (file:///C:/Users/jayso/protegi/mobsf_flutter_app/test/widget_test.dart:8:18)
+#86     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:29)
+<asynchronous suspension>
+#87     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "MaterialApp": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/jayso/protegi/mobsf_flutter_app/test/widget_test.dart:9:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1059:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/jayso/protegi/mobsf_flutter_app/test/widget_test.dart line 9
+The test description was:
+  App smoke test
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+ΓòÉΓòÉΓòí EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK Γò₧ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+00:00 +0 -1: App smoke test [E]
+  Test failed. See exception logs above.
+  The test description was: App smoke test
+  
+00:00 +0 -1: Some tests failed.
